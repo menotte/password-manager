@@ -35,6 +35,7 @@ def generate_new_password():
         file.write(f"Email: {account_email}\n")
         file.write(f"Password: {random_password}\n")
     print(f"Account information for '{account_name}' has been saved to '{file_name}' file.")
+    print("")
     print(f"The password is: {random_password}")
 
 def list_passwords():
@@ -43,6 +44,7 @@ def list_passwords():
         print("No password files found.")
     else:
         print("List of generated passwords:")
+        print("")
         for file_name in files:
             account_name = file_name.split("_password.txt")[0]
             print(f"Account: {account_name}")
@@ -55,10 +57,11 @@ def see_password(account_name):
             for line in lines:
                 if "Password:" in line:
                     password = line.strip().split("Password: ")[1]
-                    print(f"Password for '{account_name}' is: {password}")
+                    print("")
+                    print(f"Password for {account_name} is: {password}")
                     break
             else:
-                print(f"Password not found for '{account_name}' in the file.")
+                print(f"Password not found for {account_name} in the file.")
     else:
         print(f"File '{file_name}' not found.")
 
@@ -83,6 +86,7 @@ def regenerate_password_from_file(account_name):
                 file.write(f"Email: {account_email}\n")
                 file.write(f"Password: {random_password}\n")
             print(f"Password for '{account_name}' has been regenerated and saved to '{file_name}'.")
+            print("")
             print(f"The new password is: {random_password}")
     else:
         print(f"File '{file_name}' not found for '{account_name}'.")
