@@ -2,7 +2,7 @@ import random
 import string
 import os
 
-def generate_random_password(length=16):
+def generate_random_password(length=24):
     characters = string.ascii_letters + string.digits + string.punctuation
     password = ''.join(random.choice(characters) for _ in range(length))
     return password
